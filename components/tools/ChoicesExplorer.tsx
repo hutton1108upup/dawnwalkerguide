@@ -1,0 +1,17 @@
+'use client';
+
+import { useState } from 'react';
+import Link from 'next/link';
+import type { Choice, Quest } from '@/content/types';
+import { usePreferences } from '@/components/site/Preferences';
+import './tools.css';
+
+export function ChoicesExplorer({ choices, quests }: { choices: Choice[]; quests: Quest[] }) {
+  const { spoiler, setSpoiler } = usePreferences();
+  const [query, setQuery] = useState('');
+  const [quest, setQuest] = useState('all');
+  const filtered = choices.filter(c => (quest === 'all' || c.questSlug === quest) && `${c.title} ${quests.find(q => q.slug === c.questSlug)?.name ?? ''}`.toLowerCase().includes(query.toLowerCase()));
+  return <div className="choices-explorer card"><div className="choices-controls"><label className="tool-field"><span>Find a choice</span><input className="input" type="search" placeholder="Search choices…" value={query} onChange={e => setQuery(e.target.value)} /></label><label className="tool-field"><span>Quest</span><select className="input" value={quest} onChange={e => setQuest(e.target.value)}><option value="all">All quests</option>{quests.filter(q => choices.some(c => c.questSlug === q.slug)).map(q => <option key={q.slug} value={q.slug}>{q.name}</option>)}</select></label><label className="tool-field"><span>Spoiler level</span><select className="input" value={spoiler} onChange={e => setSpoiler(e.target.value as typeof spoiler)}><option value="none">○ No spoilers</option><option value="light">◐ Light spoilers</option><option value="full">● Full spoilers</option></select></label></div><p className="tool-small muted">{spoiler === 'none' ? 'Consequences stay hidden until you choose a spoiler level. Open a choice for its sources and comparison.' : spoiler === 'light' ? 'Showing broad recommendations. Specific outcomes and lockouts require full spoilers.' : 'Showing all available consequences. Unknown outcomes remain explicitly unverified.'}</p>
+    <div className="table-wrap"><table className="choices-table"><thead><tr><th>Quest / Choice</th><th>Recommended</th><th>Time cost</th><th>Lockout</th><th>Romance / ending impact</th></tr></thead><tbody>{filtered.map(c => <tr key={c.slug}><td><span className="quest-sub">{quests.find(q => q.slug === c.questSlug)?.name ?? 'Related choice'}</span><Link href={`/guides/choices/${c.slug}/`} className="quest-name">{c.title}</Link><span className="tool-status">{c.verificationStatus === 'community-report' ? 'Reported' : c.verificationStatus.replaceAll('-', ' ')}</span></td><td>{c.recommendation}{spoiler !== 'none' && <p className="tool-small muted">{c.lightConsequence}</p>}</td><td>{c.options.some(o => o.timeCost === null) ? '— Unknown' : [...new Set(c.options.map(o => o.timeCost))].join(' / ') + ' segments'}</td>{spoiler === 'full' ? <><td>{[...new Set(c.options.map(o => o.lockout))].join(' / ') || 'Not yet verified'}</td><td>{c.fullConsequence}</td></> : <td colSpan={2}><button className="spoiler-reveal" onClick={() => setSpoiler(spoiler === 'none' ? 'light' : 'full')}>{spoiler === 'none' ? '◐ Light spoilers — reveal guidance' : '● Full spoilers — reveal outcomes'}</button></td>}</tr>)}</tbody></table></div>{!filtered.length && <div className="tool-empty"><h3>No matching choices yet.</h3><p className="muted">Try another quest or a shorter search. We only add choices with attributable evidence.</p>{(query || quest !== 'all') && <button className="btn btn-outline" onClick={() => { setQuery(''); setQuest('all'); }}>Clear filters</button>}</div>}
+  </div>;
+}

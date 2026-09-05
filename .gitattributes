@@ -1,0 +1,3 @@
+# Preserve intentional Markdown hard line breaks and the upstream font license.
+*.md whitespace=-blank-at-eol
+public/fonts/OFL.txt whitespace=-blank-at-eol

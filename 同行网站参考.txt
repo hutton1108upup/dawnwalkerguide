@@ -1,0 +1,6 @@
+
+同行网站参考
+dawnwalker.wiki——可参考游戏氛围、品牌化视觉、卡片设计
+bloodofdawnwalker.org——按问题找答案”的首页信息架构
+thebloodofdawnwalkerwiki.com——搜索框 + 分类入口 + 数据可信感
+bloodofdawnwalkerguide.wiki——Verified、TOC、内容信任组件

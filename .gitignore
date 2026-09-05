@@ -1,0 +1,31 @@
+# Dependencies and generated build output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+/next-env.d.ts
+
+# Local credentials (an explicitly sanitized example may be tracked)
+.env*
+!.env.example
+*.pem
+*.key
+
+# Local tooling, screenshots, logs, and process state
+.workbuddy/
+.codex/
+.worktrees/
+artifacts/
+*.log
+playwright-report/
+test-results/
+.DS_Store
+Thumbs.db
+
+# Framework-generated agent pointers, recreated by next dev
+/AGENTS.md
+/CLAUDE.md
+
+# One-off local delivery record and its task-specific generator
+/docs/mvp-delivery.md
+/scripts/write-delivery.ts

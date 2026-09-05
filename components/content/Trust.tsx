@@ -1,0 +1,3 @@
+import type { VerificationStatus } from '@/content/types';
+const labels: Record<VerificationStatus, string> = {'verified-retail':'Verified in retail build','official-confirmed':'Officially confirmed','multi-source-confirmed':'Multi-source confirmed','community-report':'Playthrough report','unverified':'Not yet verified'};
+export function VerifiedBadge({ status }: { status: VerificationStatus }) { return <span className={`badge ${status === 'community-report' || status === 'unverified' ? 'report' : ''} ${status === 'verified-retail' ? 'retail' : ''}`}>{status !== 'community-report' && status !== 'unverified' ? '✓ ' : ''}{labels[status]}</span>; }

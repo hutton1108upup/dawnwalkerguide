@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" data-page-node-id="kUnnQZOZnDlYTT4Kzynmyv">
+<head data-page-node-id="AXWD26fsi7UHXGSVFzlu3x">
+<meta charset="UTF-8" data-page-node-id="vNxbUF3PqWx2noWEZsRrEu">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="dWjGUBNhKggmlOaskMC4j7">
+<title>Blood of Dawnwalker Guide & 30-Day Planner — 方案B 日蚀·昼夜双生</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" data-page-node-id="1MCEzg0oiqh45sSUffeRI6">
+<style>
+  /* ============ 夜主题（默认） ============ */
+  :root{
+    --bg:#0B0D12; --surface:#141824; --card:#1B2130; --border:#2A3247;
+    --text:#E6E2D8; --text2:#8E96A8; --gold:#C9A45C; --blood:#9E3A44; --moon:#8FA3C4;
+    --hero-glow:rgba(201,164,92,.10);
+  }
+  /* ============ 昼主题 ============ */
+  body.day{
+    --bg:#EFE9DC; --surface:#E6DECD; --card:#FBF7EE; --border:#D5CCB8;
+    --text:#2A2520; --text2:#6E6558; --gold:#8C5A2E; --blood:#9E3A44; --moon:#44557A;
+    --hero-glow:rgba(140,90,46,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;transition:background .5s,color .5s}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  h1,h2,.serif{font-family:"Cormorant Garamond",serif}
+  a{color:inherit;text-decoration:none}
+
+  header{border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10;background:var(--bg);transition:background .5s}
+  .nav{display:flex;align-items:center;gap:24px;height:60px;font-size:14px}
+  .logo{display:flex;align-items:center;gap:10px;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:19px}
+  .eclipse{width:22px;height:22px;border-radius:50%;border:2px solid var(--gold);position:relative;flex:none}
+  .eclipse::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--bg);transform:translateX(4px);transition:background .5s}
+  .nav a{color:var(--text2)} .nav a:hover{color:var(--text)}
+  .toggle{margin-left:auto;display:flex;align-items:center;gap:8px;cursor:pointer;border:1px solid var(--border);
+    border-radius:999px;padding:6px 14px;font-size:12px;font-weight:600;color:var(--text2);background:var(--card);user-select:none}
+  .toggle .dot{width:26px;height:14px;border-radius:999px;background:var(--border);position:relative}
+  .toggle .dot::after{content:"";position:absolute;top:2px;left:2px;width:10px;height:10px;border-radius:50%;background:var(--gold);transition:.3s}
+  body.day .toggle .dot::after{left:14px}
+
+  /* hero with eclipse */
+  .hero{padding:80px 0 70px;text-align:center;position:relative;overflow:hidden}
+  .hero-eclipse{width:340px;height:340px;border-radius:50%;margin:0 auto -170px;position:relative;
+    background:radial-gradient(circle,var(--hero-glow),transparent 70%);}
+  .hero-eclipse .ring{position:absolute;inset:60px;border-radius:50%;border:1px solid var(--gold);opacity:.5}
+  .hero-eclipse .core{position:absolute;inset:110px;border-radius:50%;background:var(--blood);opacity:.25;
+    box-shadow:0 0 80px 30px var(--hero-glow)}
+  .hero .kicker{font-size:12px;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+  .hero h1{font-size:52px;font-weight:600;line-height:1.15;max-width:720px;margin:0 auto 16px}
+  .hero h1 em{font-style:italic;color:var(--gold)}
+  .hero p{color:var(--text2);max-width:540px;margin:0 auto 30px}
+  .btns{display:flex;gap:14px;justify-content:center}
+  .btn{padding:13px 28px;border-radius:999px;font-weight:600;font-size:15px}
+  .btn.solid{background:var(--gold);color:var(--bg)}
+  .btn.line{border:1px solid var(--border);color:var(--text)}
+  .duality{display:flex;justify-content:center;gap:28px;margin-top:36px;font-size:13px;color:var(--text2)}
+  .duality b{color:var(--text);font-weight:600}
+
+  section{padding:46px 0;border-top:1px solid var(--border)}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
+  .sec-title{font-size:30px;font-weight:600}
+  .sec-more{color:var(--gold);font-size:13px;font-weight:600}
+
+  .needs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .need{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 18px;transition:.25s}
+  .need:hover{border-color:var(--gold);transform:translateY(-3px)}
+  .need .num{font-family:"Cormorant Garamond",serif;font-size:26px;color:var(--gold);margin-bottom:10px}
+  .need .q{font-size:15px;font-weight:600;min-height:44px;margin-bottom:10px}
+  .need .go{color:var(--gold);font-size:13px;font-weight:600}
+
+  .planner{display:grid;grid-template-columns:1fr 250px;gap:20px}
+  table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);text-align:left;padding:12px 14px;border-bottom:1px solid var(--border)}
+  td{padding:13px 14px;border-bottom:1px solid var(--border);color:var(--text2);font-variant-numeric:tabular-nums}
+  td:first-child{color:var(--text);font-weight:500}
+  tr.night-row td{background:color-mix(in srgb,var(--moon) 6%,transparent)}
+  .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px}
+  .tag.day{background:color-mix(in srgb,var(--gold) 16%,transparent);color:var(--gold)}
+  .tag.night{background:color-mix(in srgb,var(--moon) 18%,transparent);color:var(--moon)}
+  .tag.miss{background:color-mix(in srgb,var(--blood) 22%,transparent);color:var(--blood)}
+  body.day .tag.miss{color:#fff;background:var(--blood)}
+  .add{color:var(--gold);font-weight:600;font-size:13px;cursor:pointer}
+  .planbox{background:var(--card);border:1px solid var(--gold);border-radius:14px;padding:22px}
+  .planbox h3{font-size:12px;letter-spacing:.15em;color:var(--gold);margin-bottom:14px;font-family:Inter}
+  .planbox .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;color:var(--text2)}
+  .planbox .row b{color:var(--text);font-variant-numeric:tabular-nums}
+  .sunbar{height:6px;border-radius:999px;background:var(--border);margin:10px 0 14px;overflow:hidden}
+  .sunbar i{display:block;height:100%;width:23%;background:linear-gradient(90deg,var(--gold),var(--blood));border-radius:999px}
+  .warn{padding:10px 12px;background:color-mix(in srgb,var(--blood) 14%,transparent);border:1px solid var(--blood);border-radius:10px;font-size:13px;color:var(--text)}
+  .planbox .btn{display:block;text-align:center;margin-top:16px}
+  .hint{font-size:12px;color:var(--text2);margin-top:10px;text-align:center}
+
+  .problems{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .prob{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;font-size:15px;font-weight:600}
+  .prob span{color:var(--text2);font-weight:400;font-size:13px;display:block;margin-top:4px}
+
+  .fixes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .fix{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 12px;font-size:14px;font-weight:600;text-align:center}
+  .fix small{display:block;color:var(--text2);font-weight:400;margin-top:6px;font-size:12px}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .vcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px}
+  .vcard .badge{display:inline-flex;gap:6px;font-size:11px;font-weight:700;color:var(--gold);border:1px solid var(--gold);
+    border-radius:999px;padding:3px 10px;margin-bottom:12px;letter-spacing:.05em}
+  .vcard h4{font-size:17px;margin-bottom:8px;font-family:"Cormorant Garamond",serif;font-weight:700}
+  .vcard p{font-size:13px;color:var(--text2)}
+  .vcard .meta{margin-top:14px;font-size:12px;color:var(--text2);border-top:1px solid var(--border);padding-top:10px}
+
+  footer{border-top:1px solid var(--border);padding:32px 0;color:var(--text2);font-size:12px;text-align:center}
+  @media(max-width:900px){.needs,.fixes{grid-template-columns:repeat(2,1fr)}.planner,.problems,.cards{grid-template-columns:1fr}.hero h1{font-size:34px}}
+</style>
+</head>
+<body data-page-node-id="bgwjCyg59MOCeg8jQvG7AM">
+
+<header data-page-node-id="27w6MNKtm9A21fN1X08Q2h"><div class="wrap nav" data-page-node-id="oBEjOlrCh9tVeTrTzLOeqe">
+  <a class="logo" href="#" data-page-node-id="7eVQWfb8kl3DsHIdT1lA30"><span class="eclipse" data-page-node-id="bhTBXl5qdX4jAF2ngT3nXz"></span>Dawnwalker Guide</a>
+  <a href="#" data-page-node-id="IIYY1PCuzOEPIrg1rJgTfc">Guides</a><a href="#" data-page-node-id="2x5VhXv9mNDC11c7CleKUo">Planner</a><a href="#" data-page-node-id="fXVQo34Whliav34ZwweEin">Choices</a><a href="#" data-page-node-id="abXg510dQkpUygPQ7ZSbdA">Quests</a><a href="#" data-page-node-id="E7pCTnGlrlwUYS5FRzSzyG">Bosses</a><a href="#" data-page-node-id="YSnyvf4uBbo1IhCgXKPqD7">Fixes</a>
+  <div class="toggle" onclick="document.body.classList.toggle('day')" data-page-node-id="JslXZM3Y0I6qol0lYlMotC"><span data-page-node-id="rZ0LWcOQLX4kLMmyj103xE">☾ Night</span><span class="dot" data-page-node-id="jPUDHulnnvHBdALqJUZ5gC"></span><span data-page-node-id="mdiafqJQBIBa2hkXrF422Z">☀ Day</span></div>
+</div></header>
+
+<div class="wrap" data-page-node-id="ifrJtleKA2bMoeCtt8uO7b">
+
+  <div class="hero" data-page-node-id="Ifa0p360xXkkVPxygWxp2R">
+    <div class="hero-eclipse" data-page-node-id="bKEtOrxHlV1yPWvX37H5Va"><div class="ring" data-page-node-id="UU79YTbww74yjwEx4QBpHF"></div><div class="core" data-page-node-id="BGBF0wua5g932YnpBtt86B"></div></div>
+    <div class="kicker" data-page-node-id="7408PtgT4jF9mz5nKHFRtq">Two Worlds · One Choice</div>
+    <h1 data-page-node-id="K2AH3OgwJCZ5Ue3zZinP0h">Plan Your <em data-page-node-id="4bsDiewRDXbDCgyr9D4OTR">30 Days</em> Without Missing What Matters</h1>
+    <p data-page-node-id="AnSEXFivuz7vVxv41U63ok">A spoiler-controlled guide to quests, choices, missables and time management in The Blood of Dawnwalker.</p>
+    <div class="btns" data-page-node-id="EMPLBL3jnl7h3rZFZkOz2T">
+      <a class="btn solid" href="#" data-page-node-id="9hd1RSHj7RmuqD6rX5kmGG">Build My Route</a>
+      <a class="btn line" href="#" data-page-node-id="uWE0taaZta5QYVOcpgBNZ2">See Missable Quests</a>
+    </div>
+    <div class="duality" data-page-node-id="3yCIWD1EBe0Ml3q40EGt7Y">
+      <span data-page-node-id="NPQQr1larvXJ6NBnGi6JhM">☀ <b data-page-node-id="vQgFyqp6LACnlvFDTappKb">Human by day</b> — sword & witchcraft</span>
+      <span data-page-node-id="VBDFZvPzV6bPban0CmjEsH">☾ <b data-page-node-id="onmDSk0XJ7bB3u0ATXKQ1S">Vampire by night</b> — claws & shadowstep</span>
+    </div>
+  </div>
+
+  <section data-page-node-id="0oyLz65r4ibnby8hUTZa7J">
+    <div class="sec-head" data-page-node-id="8LeXInK7F2wEfyA1tCDPkZ"><h2 class="sec-title" data-page-node-id="g704WFQcKivF27hjbChclB">What Do You Need Right Now?</h2></div>
+    <div class="needs" data-page-node-id="XE7VUGD76g4qtqe7G1BLia">
+      <a class="need" href="#" data-page-node-id="qBCMX7AFtjL16HQctkyEtl"><div class="num" data-page-node-id="LUqC6kgZEISbJAuZDf7fjJ">01</div><div class="q" data-page-node-id="iQQLBs7lKqMBj2RfySqABD">I don't know what quest to do next</div><div class="go" data-page-node-id="MIfhp4UChrkMUaTdHdCYpE">Quest Order →</div></a>
+      <a class="need" href="#" data-page-node-id="53JH1ovLSpa3F9PO2ApOPJ"><div class="num" data-page-node-id="kh892SDecmprDIclkLw0FC">02</div><div class="q" data-page-node-id="agw5TWTHicNE1D95Hq2gkG">I'm afraid I'll miss something</div><div class="go" data-page-node-id="F65qrXOJ6P7ySkhcDmcjDq">Missable Checklist →</div></a>
+      <a class="need" href="#" data-page-node-id="QRN8nbEDQwezxK3nH7dFOF"><div class="num" data-page-node-id="n4mrXuNBK3i1oWM1NHgpBW">03</div><div class="q" data-page-node-id="b2cXxrrAhhq7hujaqoxFmC">I need help with a choice</div><div class="go" data-page-node-id="5Yq0gW12YHdaUoUZM0GRn2">Choices, Spoiler-Safe →</div></a>
+      <a class="need" href="#" data-page-node-id="tIae0aeRxNObK4Ayy9qJmg"><div class="num" data-page-node-id="v9xuldRdvgzH9OcznYzQ81">04</div><div class="q" data-page-node-id="UYpviTt8jDDF7DsYjXFifx">My game runs badly</div><div class="go" data-page-node-id="qZHzUHV1ngHayvXVRnPQrB">Performance Fixes →</div></a>
+    </div>
+  </section>
+
+  <section data-page-node-id="vFnrUPRSlRSUpOu4oNMzbI">
+    <div class="sec-head" data-page-node-id="wO4VIAzRQf2UOwFfRKlcdh">
+      <h2 class="sec-title" data-page-node-id="hURIELMLfxuMTLKS4FDZYl">30-Day Planner</h2>
+      <span class="sec-more" data-page-node-id="vVMZqBL7o3GLFQCBJzuVjF">Night quests highlighted ☾ — toggle day/night to filter</span>
+    </div>
+    <div class="planner" data-page-node-id="rEcHocoGaFHJcdFODheDQm">
+      <table data-page-node-id="Vq20shcS3m3Kc6APBEsKKW">
+        <tr data-page-node-id="G7mJPm9QEBGnVGQhd3fZQo"><th data-page-node-id="FQ0bOiXbdj4OiXxacjsAgI">Quest</th><th data-page-node-id="SypYypQHRGj8EmXQYanL3l">Time</th><th data-page-node-id="c6s2qsqG7WWQIWtHZSAdVB">Phase</th><th data-page-node-id="B767d8zmbv9g1TfrYSu3A6">Missable</th><th data-page-node-id="CNJZyerm89PGGckrkTkEDa">Reward</th><th data-page-node-id="vmxR6llc7zVFZKaOiCO3sY"></th></tr>
+        <tr class="night-row" data-page-node-id="w4ao4KSTMlTjXfPp3rwb0z"><td data-page-node-id="kHY9QMvIlh1jjhRXymEtMs">The Blood Tithe</td><td data-page-node-id="wPaNZDaHpinkVunaGlGqGc">2</td><td data-page-node-id="5oHuakf4WRUYNa4bAhzX7K"><span class="tag night" data-page-node-id="SvO3ItM8fVkBF6Z6P4ch74">☾ Night</span></td><td data-page-node-id="CQKWKW4UiKAbfNrSxs0w6T"><span class="tag miss" data-page-node-id="Vit7UqDKOucUNRYAMK9UJJ">Yes</span></td><td data-page-node-id="GbQeZtH3sSI5PzFbgThD8Z">Skill Manual</td><td data-page-node-id="eGJCvDS6AJ1TcbtID5sECq"><span class="add" data-page-node-id="3AHq6xy4LW1yg2Zd9HpA6U">+ Add</span></td></tr>
+        <tr data-page-node-id="11tcjMiNmgJC8Ue5WUNqtu"><td data-page-node-id="IacKJmDeSrghesDF7rE3je">Echoes of Laslea Glen</td><td data-page-node-id="9Aw6MFZx4CBs1c1csx8Feg">1</td><td data-page-node-id="QZnS5S2jxfzS8PNEox65zx"><span class="tag day" data-page-node-id="OjZy3ZyEzy01TOI1KgGlON">☀ Either</span></td><td data-page-node-id="n0syZXhAD5F9FpvqAntBCG">No</td><td data-page-node-id="gs8sfsCfGomQVaeZp2L3OT">Silver</td><td data-page-node-id="6WcAzPEyrSXh4ZUw75fR3F"><span class="add" data-page-node-id="CLpWZwVqk5nxRlgoZGR4Eu">+ Add</span></td></tr>
+        <tr class="night-row" data-page-node-id="fEpX7a5rIVFbUAlIrjR5Dm"><td data-page-node-id="x6IrGoEcMFiWLv9uvo9F5J">The Court of Ambrus</td><td data-page-node-id="bogpRHWVdbH5Xt91ygLuxP">3</td><td data-page-node-id="4qxvgWWX0XBHQllwik2wFm"><span class="tag night" data-page-node-id="VKhSX8QMYqPPPyEsLHIdaR">☾ Night</span></td><td data-page-node-id="o7Eve2VOhlR1k78ZnkkHBR"><span class="tag miss" data-page-node-id="v5DPA03VmjSaxniQZ6XFu6">Yes</span></td><td data-page-node-id="PmO6USb0H5c1H2TVPE042b">Alliance</td><td data-page-node-id="lAwdIOSzEIeP7Fd7ASqJa2"><span class="add" data-page-node-id="VpRTDSUrx5iOzzMhcPHp60">+ Add</span></td></tr>
+        <tr data-page-node-id="yCtqMO0805eoLx7DRD5VQO"><td data-page-node-id="ydJNyeBww5aW7UfHuh5toF">Soup for the Ailing</td><td data-page-node-id="N5haCBX9Roz9HtqS336opR">1</td><td data-page-node-id="y1Ln5VmSAd22vH4iNXi3va"><span class="tag day" data-page-node-id="4TOyADYbEUP6tXlpbBFpP0">☀ Day</span></td><td data-page-node-id="hzTd4kF2nIr31h3E6xB7HS"><span class="tag miss" data-page-node-id="jd32IWyOQpg2bVTa87vXAM">Yes</span></td><td data-page-node-id="hG0q95A8G33qTIhnEOfSRD">Family Clue</td><td data-page-node-id="q3brBVUE1AzVBuuCFPvRnD"><span class="add" data-page-node-id="5gfHpX1LHOUjOyFHC2AKCS">+ Add</span></td></tr>
+      </table>
+      <div class="planbox" data-page-node-id="q1liFGWuZm09BrRRVOg91F">
+        <h3 data-page-node-id="FBGrGDTARmB4b82SrEqJWf">YOUR PLAN</h3>
+        <div class="row" data-page-node-id="MeOgL3eFgaiP31j5kdfzRW"><span data-page-node-id="UVLMmv9Yu5aLCjD0D3oE5V">Selected quests</span><b data-page-node-id="IKSB7nJSX3i0U81DCz3AFU">8</b></div>
+        <div class="row" data-page-node-id="le0dxmeazkHqiYT4B9Le4G"><span data-page-node-id="tOtNVGm5O5qmmeODCOr9oE">Days used</span><b data-page-node-id="4KcUtAc6lam8W6gwuHtHxf">7 / 30</b></div>
+        <div class="sunbar" data-page-node-id="wmlofwQWhYxJfUYDDobL9h"><i data-page-node-id="2oCTgF52eFZFuVAZ3myBSX"></i></div>
+        <div class="row" data-page-node-id="vKH2tTnE6QBk8fEKdFyq3i"><span data-page-node-id="kJBgLbpD7pjgCw6r4Ho2q3">Days remaining</span><b data-page-node-id="BCRXsEa5jmU34u0jTLBObQ">23</b></div>
+        <div class="warn" data-page-node-id="aKoarv6sh6lzkpWbudR7cV">⚠ 2 possible lockouts · 1 missable NPC event</div>
+        <a class="btn solid" href="#" data-page-node-id="usSFDjxAi0mMWgADIxslry">Open Full Planner</a>
+        <div class="hint" data-page-node-id="6CucO0ijmEkmVcUQ4N1W1O">Spoiler level: ◐ Light — outcomes stay hidden</div>
+      </div>
+    </div>
+  </section>
+
+  <section data-page-node-id="5kMlEA8uBm9SDkDqB4b0vb">
+    <div class="sec-head" data-page-node-id="OlopylQAGpp04gyjsuxPVT"><h2 class="sec-title" data-page-node-id="zOGwBXunlJEFQe4Ph4rhpU">Popular Problems</h2><a class="sec-more" href="#" data-page-node-id="L6rOltVEvvTE5L1WYUxEMR">All guides →</a></div>
+    <div class="problems" data-page-node-id="j0iZhqCXkdT1k7jgcCGWMu">
+      <a class="prob" href="#" data-page-node-id="N6u1NqydZCEvaHzlRGYTJ1">What happens after the 30 days run out?<span data-page-node-id="ZBJNkMuciwMyT8nlRkLAfL">No game over — but the story turns. Here's exactly what changes.</span></a>
+      <a class="prob" href="#" data-page-node-id="XIq2VUx8v9qW4zD6NPPuk6">Can you complete every quest in one playthrough?<span data-page-node-id="UabPu8LeA6SvBMJxs8gJzB">No. The sandbox is built so you can't. Here's what to prioritize.</span></a>
+      <a class="prob" href="#" data-page-node-id="HiTpJ4bsDUanA5GekqWG3Q">What actually advances time?<span data-page-node-id="u9KLoryptTn7TCRUSV5QKJ">Only marked quests and actions. Exploration is free.</span></a>
+      <a class="prob" href="#" data-page-node-id="OoJyMocqIb7gREOm9GUfF4">Which quests are missable?<span data-page-node-id="ILrG9shjB11O431whF4hBt">The full checklist, verified against the retail build.</span></a>
+    </div>
+  </section>
+
+  <section data-page-node-id="UZddA0EGzba7xboA94YOgg">
+    <div class="sec-head" data-page-node-id="gJ72XvwbbzfOiVMaqQ4Voh"><h2 class="sec-title" data-page-node-id="EHs8uwTyKLBIBGjnAQ3a1c">Fix Current Problems</h2><a class="sec-more" href="#" data-page-node-id="fVHK7m8ad19eUcswQK9Bqg">All fixes →</a></div>
+    <div class="fixes" data-page-node-id="897ce1D5Lg06GkEdvmcnMb">
+      <a class="fix" href="#" data-page-node-id="mdph4aMH0pksInj1EjEp9f">Stuttering<small data-page-node-id="sJES9YHQf3oUrWG9WrZSM2">Hotfix 1.0.2 status</small></a>
+      <a class="fix" href="#" data-page-node-id="0vO12lRCEirAK1KE0GYZXy">Best PC Settings<small data-page-node-id="ApqFAa9EF81fCFyG649Ij2">Tested · 3 GPUs</small></a>
+      <a class="fix" href="#" data-page-node-id="n4ADpgtzvRbLbL7ebIlL4J">Crashing<small data-page-node-id="I93PJFZmmZekt9BTmNx0pN">Startup & shader</small></a>
+      <a class="fix" href="#" data-page-node-id="VAvXgC3oxVDAFvbVcB9Nga">Steam Deck<small data-page-node-id="NLO348xLe6qXCnDtvXR6tu">Verified settings</small></a>
+      <a class="fix" href="#" data-page-node-id="efK9Eau2DQgs2eVH30e2FS">PS5 Performance<small data-page-node-id="dweCIEDEyhuwXSBJrIzgHy">Quality vs Performance</small></a>
+    </div>
+  </section>
+
+  <section data-page-node-id="DzMebxdrhGb5jcgQh2bRL9">
+    <div class="sec-head" data-page-node-id="82s5f0XFEICr4JGIgdUKWP"><h2 class="sec-title" data-page-node-id="p5iGl2bL9nghc2ihtTJia2">Recently Verified</h2><a class="sec-more" href="#" data-page-node-id="PGzb5RC3HlOgIBTpML3i2k">Verification policy →</a></div>
+    <div class="cards" data-page-node-id="7RTGzCZcHfkZz2Q936MZra">
+      <div class="vcard" data-page-node-id="vPEg1fvF1mU04B7kAZlkOO"><span class="badge" data-page-node-id="yFcUne1xAQncNk1bYnPix6">✓ VERIFIED · PATCH 1.0.2</span><h4 data-page-node-id="QwBESVcxllS8eNUEVdVc2E">The 30-Day Time Limit, Explained</h4><p data-page-node-id="eMssbdJB6YBFf1dJZf3Qzk">What advances story time, what doesn't, and why the deadline still matters.</p><div class="meta" data-page-node-id="2bVX3pNoPtqDHivQiXZpo6">Updated Sep 5 · Verified in Retail Build</div></div>
+      <div class="vcard" data-page-node-id="61JSIgRGbL9G6K3YxCDAbl"><span class="badge" data-page-node-id="SzztS5xJ5ZGxlfmzCtCWxC">✓ VERIFIED · PATCH 1.0.2</span><h4 data-page-node-id="h75bTRBk33nYEIIO0D6cLF">Brencis & the Three Lords of Vale Sangora</h4><p data-page-node-id="YxNy9jUPHQuCKJCNZgpz98">Ambrus, Bakia, Xanthia — roles, dominions, and what they mean for your route.</p><div class="meta" data-page-node-id="COpXkRBULula5bFGhKExBD">Updated Sep 4 · Multi-Source Confirmed</div></div>
+      <div class="vcard" data-page-node-id="pubkFpsGVqHI8IEaMBe6CJ"><span class="badge" data-page-node-id="MdtTu49IEiYkmLUEBItNbh">✓ VERIFIED · PATCH 1.0.2</span><h4 data-page-node-id="NQgTXuXZMT5NQdWZHMlZ0F">Day & Night: Human vs Vampire Kits</h4><p data-page-node-id="SHEWAF1Fij8VqqYC3QVrcK">Witchcraft by day, claws and shadowstep by night — and the cost of Blood Hunger.</p><div class="meta" data-page-node-id="lek2ovY6xRe97fGcDCZWVl">Updated Sep 4 · Verified in Retail Build</div></div>
+    </div>
+  </section>
+
+  <footer data-page-node-id="JFi4ERX19Cj3VSnCJqzlsw">
+    Dawnwalker Guide is an unofficial fan resource. Not affiliated with or endorsed by Rebel Wolves or Bandai Namco Entertainment.<br data-page-node-id="qBWKMC4SBSAchAQY7GeALG">
+    About · Editorial Policy · Contact · Privacy
+  </footer>
+
+</div>
+</body>
+</html>
