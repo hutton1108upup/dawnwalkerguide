@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dawnwalkerguide",
+  "account_id": "7fd7ed1128ca3d125feaa279f4d4c547",
+  "compatibility_date": "2026-09-05",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./out",
+    "html_handling": "force-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

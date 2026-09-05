@@ -29,3 +29,6 @@ Thumbs.db
 # One-off local delivery record and its task-specific generator
 /docs/mvp-delivery.md
 /scripts/write-delivery.ts
+
+# Cloudflare local state
+.wrangler/

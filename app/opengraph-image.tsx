@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import { makeOg } from '@/lib/og';
 export const alt='Dawnwalker Guide — Plan your 30 days';
 export const size={width:1200,height:630};

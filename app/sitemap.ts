@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import type { MetadataRoute } from 'next';
 import { SITE_URL, absolute, checkedDate } from '@/lib/site';
 import { getRouteKeys, isIndexable } from '@/lib/routes';

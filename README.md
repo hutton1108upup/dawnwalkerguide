@@ -26,7 +26,7 @@ npm.cmd start
 - `app/[...slug]/page.tsx` 以结构化数据生成指南/任务/选择/工具/支持页。`lib/routes.ts` 集中控制路由与索引策略。
 - 所有个人状态保存在浏览器。没有账号、数据库、实际邮件发送、广告或已连接的统计服务。
 - `lib/events.ts` 只派发当前浏览器的 `dw-analytics` 事件（包含 PRD 事件名）；未连接 GA 或外部收集服务。部署与隐私设置确定后再接入，不能把本地事件当成已采集指标。
-- GA measurement ID、GSC ownership、公开联系渠道和部署账户未提供；当前未注册或连接这些外部服务。
+- GA measurement ID、GSC ownership 和公开联系渠道未提供；当前未注册或连接这些外部服务。
 
 ## 验证
 
@@ -47,3 +47,18 @@ npm.cmd run qa
 提交文件取舍见 `docs/repository-files.md`。安装依赖并运行 Next.js 后会重新生成类型声明与框架代理提示；本地截图、日志、工具记忆和交付记录不会上传。
 
 发布前应核对 [官方社区内容准则](https://dawnwalkergame.com/us/en/community) 的域名条款。该页面明确要求社区域名不包含游戏或公司名称；同时存在旧的未发售介绍，条款修订日期未标明。此处记录官方表述而非法律结论，未擅自替换用户指定域名或对外询问。
+
+## Cloudflare Workers 静态部署
+
+目标 Worker：`dawnwalkerguide`，账号 ID 写在 `wrangler.jsonc`，Git 来源为 `hutton1108upup/dawnwalkerguide` 的 `main`。
+
+- 构建命令：`npm run cf:build`
+- 部署命令：`npx wrangler deploy`
+- 产物目录：`out`；没有服务端账号或数据库运行时。
+- 本地预览：`npx wrangler dev --ip 127.0.0.1 --port 4173 --local`
+- 全站检查：设置 `QA_BASE_URL=http://127.0.0.1:4173` 后运行 `npm run qa`；媒体检查运行 `node scripts/media-qa.mjs`。
+- `/release.json` 返回构建时 Git SHA，用于核对线上版本。
+
+`npm run build` 仍保留普通 Next.js 生产构建。Cloudflare 构建单独启用静态导出，为 extensionless 首页分享图补 MIME，并兼容当前 Next 16.3 在 Windows 上导出的 RSC 分段文件名。详情分享图使用 `.png` 后缀，避免分类图与分类目录冲突。
+
+官方媒体、关键事实与关键词归属见 `docs/seo-evidence.md`。YouTube 在用户明确点击加载后才连接第三方，播放受网络及 YouTube 嵌入策略影响，始终提供原视频链接。
