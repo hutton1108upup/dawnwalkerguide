@@ -19,7 +19,7 @@ export interface Missable {
   id: string; name: string; group: string; type: 'Quest' | 'Item' | 'NPC' | 'Romance' | 'Achievement';
   condition: string; lightCondition: string; fullCondition: string; href: string; verificationStatus: VerificationStatus;
 }
-export interface ArticleImage { src: string; alt: string; width: number; height: number; caption: string; source: Source }
+export interface ArticleImage { src: string; alt: string; width: number; height: number; caption: string; source: Source; spoiler?: 'light' | 'full' }
 export interface ArticleVideo { id: string; title: string; caption: string; source: Source; spoiler: 'light' | 'full' }
 export interface ArticleSection {id: string; title: string; paragraphs: string[]; bullets?: string[]; steps?: string[]; table?: {headers: string[]; rows: string[][]}; spoiler?: SpoilerLevel; sources?: Source[]; links?: {href: string; title: string}[]; image?: ArticleImage; video?: ArticleVideo}
 export interface Article {

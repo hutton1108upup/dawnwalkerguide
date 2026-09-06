@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowUpRight, Info } from 'lucide-react';
-import type { Article, ArticleSection, Source, Quest } from '@/content/types';
+import type { Article, ArticleImage, ArticleSection, Source, Quest } from '@/content/types';
 import { SpoilerGate, SpoilerSwitch } from '@/components/site/Preferences';
 import { VerifiedBadge } from './Trust';
 import { Toc } from './Toc';
@@ -9,6 +9,13 @@ export function Breadcrumbs({ items }: { items: { title: string; href?: string }
 export function QuickAnswer({ text, status, version }: { text: string; status: Article['verificationStatus']; version: string }) { return <div className="quick-answer"><p className="eyebrow">Quick answer</p><p>{text}</p><div className="answer-meta"><VerifiedBadge status={status}/><SpoilerSwitch/><span>{version}</span></div></div>; }
 export function Sources({ sources }: { sources: Source[] }) { return <section className="article-section" id="sources"><h2>Sources & verification</h2><ul className="source-list">{sources.map(source => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a>{source.note && <small>{source.note}</small>}</li>)}</ul><p className="reviewed-note">Source checks are separate from in-game testing. <Link className="text-link" href="/editorial-policy/">Read our evidence policy.</Link></p></section>; }
 export function RelatedLinks({ links }: { links: {href:string;title:string}[] }) { return <section className="related-section"><h2>Keep your next step in sight</h2><div className="link-grid">{links.map(link => <Link key={link.href} href={link.href} className="related-link">{link.title}<ArrowUpRight size={17}/></Link>)}</div></section>; }
+function GameImage({ image }: { image: ArticleImage }) {
+  // img SEO: describe the actual scene in alt; keyword/placement rationale lives in
+  // content/article-images.ts. Source credit is visible in figcaption, not just a comment.
+  // Local WebP + explicit dimensions + lazy decoding work with the static export.
+  const figure = <figure className="article-image"><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async"/><figcaption>{image.caption} <a href={image.source.url} target="_blank" rel="noreferrer">{image.source.title} ↗</a></figcaption></figure>;
+  return image.spoiler ? <SpoilerGate level={image.spoiler}>{figure}</SpoilerGate> : figure;
+}
 function SectionBody({ section }: { section: ArticleSection }) {
   return <>
     {section.paragraphs.map((p,i) => <p key={i}>{p}</p>)}
@@ -17,7 +24,7 @@ function SectionBody({ section }: { section: ArticleSection }) {
     {section.table && <div className="table-wrap"><table><thead><tr>{section.table.headers.map(h => <th scope="col" key={h}>{h}</th>)}</tr></thead><tbody>{section.table.rows.map((row,i) => <tr key={i}>{row.map((cell,j) => <td key={j}>{cell}</td>)}</tr>)}</tbody></table></div>}
     {section.sources && <p className="section-evidence">Evidence: {section.sources.map((source,i) => <span key={source.url}>{i > 0 && ' · '}<a href={source.url} target="_blank" rel="noreferrer">{source.title} ↗</a></span>)}</p>}
     {section.links && <ul className="section-reading">{section.links.map(link => <li key={link.href}><Link href={link.href}>{link.title} →</Link></li>)}</ul>}
-    {section.image && <figure className="article-image"><img src={section.image.src} alt={section.image.alt} width={section.image.width} height={section.image.height} loading="lazy" decoding="async"/><figcaption>{section.image.caption} <a href={section.image.source.url} target="_blank" rel="noreferrer">{section.image.source.title} ↗</a></figcaption></figure>}
+    {section.image && <GameImage image={section.image}/>}
     {section.video && <SpoilerGate level={section.video.spoiler}><YouTubeVideo video={section.video}/></SpoilerGate>}
   </>;
 }

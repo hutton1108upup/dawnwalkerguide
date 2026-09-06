@@ -24,6 +24,15 @@ Checked September 6, 2026. Official mechanics and issue notices take precedence 
 
 ## Keyword ownership
 
+### Homepage revision — September 6, 2026
+
+- `/` owns the broad Blood of Dawnwalker Guide intent and introduces the browser-local planner. `/guides/` remains a directory; no duplicate wiki landing page is added.
+- `/tools/30-day-planner/` owns interactive planning, `/guides/time-limit/` explains the clock, and `/guides/quest-order/` covers selected prologue commitments.
+- Homepage questions now provide short answers before linking to details. Coverage limits remain visible; neither the homepage nor its metadata promises a complete campaign route or tested PC settings.
+- The shared planner presents its spoiler explanation once above the table, retaining short hidden states in rows and the existing spoiler controls.
+- Sitemap dates use recorded article updates or explicitly recorded page edits. Pages without a reliable individual update date omit lastmod instead of inheriting a global source-check date.
+- Preserve existing index/noindex decisions. Optional explanatory media and Search Console follow-up remain later work; this revision adds no analytics service.
+
 Preserve 关键词.md as raw research rather than silently editing its source history. Exclude unrelated Onimusha/Halloween terms and copy/translation fragments from editorial briefs.
 
 | Intent | Main destination | Boundary |

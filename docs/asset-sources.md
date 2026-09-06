@@ -1,5 +1,7 @@
 # 字体与视觉素材
 
+- 2026-09-06：4 个攻略内页新增 6 张官方游戏/发布图片。逐图关键词、来源及使用边界见 [内页配图方案](./article-image-plan.md)，代码注释见 `content/article-images.ts`。
+
 - 网站主体 Cormorant Garamond（500/600/700）、Inter（400/500/600）通过 Next.js 的 next/font/google 在构建时获取并本地提供。
 - 分享卡片使用同一 Cormorant Garamond 600 字体，离线文件 `public/fonts/cormorant-garamond-600.ttf`，来自 [Google Fonts CSS](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600) 返回的 [Google Fonts 字体文件](https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf)。仅用于服务器端生成分享图。
 - 日蚀、Logo、favicon 和 OG 装饰均为本项目 CSS/SVG/程序绘制。原始 MVP 未使用官方游戏截图、地图或角色素材。9 月 6 日在正文新增了署名的官方预告片宣传图，详见下方记录。
