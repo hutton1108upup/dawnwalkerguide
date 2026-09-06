@@ -1,3 +1,4 @@
+import { articleImages } from './article-images';
 import type { Article, Choice, Missable, Quest, Source } from './types';
 
 // Dates describe source review, never a claim of our own retail playtesting.
@@ -100,6 +101,7 @@ export const articles: Article[] = [
   "sections": [
     {
       "id": "what-spends-time",
+      image: articleImages.timeDay,
       "title": "What actually advances the Dawnwalker clock?",
       "paragraphs": [
         "You can look around Vale Sangora without treating every minute at the keyboard as lost campaign time. The important boundary is an action that starts or advances a time-consuming quest. Its displayed cost is the number to check before you agree."
@@ -133,6 +135,7 @@ export const articles: Article[] = [
     },
     {
       "id": "segments",
+      image: articleImages.timeNight,
       "title": "How many segments are in a day and a night?",
       "paragraphs": [
         "Xbox Wire describes eight daylight units and eight nighttime units. That makes 16 for a complete cycle. Keep the phase visible in your notes: an action budget and a day/night requirement answer different questions."
@@ -461,7 +464,7 @@ export const articles: Article[] = [
     slug: 'beginner', verificationStatus: 'multi-source-confirmed', title: 'Dawnwalker Beginner Guide: Six Checks Before You Commit', description: 'Start Dawnwalker with a clear grasp of commitment costs, day and night abilities, dialogue and combat options.', kicker: 'Start here',
     quickAnswer: 'Learn the commitment prompt before optimizing a route. Explore, inspect your journal and choose a manageable next objective; the clock does not measure how slowly you read a guide.', sources: [officialTime, reveal, tips],
     sections: [
-      { id: 'forms', title: 'Learn both sides of Coen', paragraphs: ['Day and night offer different abilities and approaches. When a route seems inaccessible, inspect the current phase and available actions before assuming the quest is broken.'] },
+      { id: 'forms', image: articleImages.beginner, title: 'Learn both sides of Coen', paragraphs: ['Day and night offer different abilities and approaches. When a route seems inaccessible, inspect the current phase and available actions before assuming the quest is broken.'] },
       { id: 'journal', title: 'Read the journal as a decision screen', paragraphs: ['The playthrough report identifies sun and moon markers for phase-specific activities and notes that optional dialogue can expose additional choices. Pause to inspect these cues rather than rapidly selecting the next highlighted line.'] },
       { id: 'session', title: 'Give the first session one goal', paragraphs: ['Our suggestion: choose a small objective such as understanding a combat encounter, finishing a family errand or finding a character. Do not turn the entire map into a mandatory checklist before you know which story you want.'], steps: ['Read the hourglass before accepting a time-consuming action.', 'Check whether your current day or night phase suits the activity.', 'Review event warnings before collecting optional rewards.', 'Choose the combat controls you can read consistently.', 'Set your spoiler preference before opening a decision comparison.', 'After the objective, update the journal and your personal queue.'], sources: [officialTime] },
       { id: 'tools', title: 'Use the tools when a decision needs them', paragraphs: ['The planner helps compare known costs; the checklist helps remember reviewed warnings; choices show branch tradeoffs. None reads your game save or automatically knows which steps you have already completed.'] },
@@ -768,10 +771,10 @@ export const articles: Article[] = [
     slug: 'combat', title: 'Combat: choose a control style you can read', description: 'Understand adaptive versus directional combat and create a focused practice routine without invented builds.', kicker: 'Combat basics',
     quickAnswer: 'The official overview describes adaptive attack/block controls and a directional alternative. Choose the one that lets you read encounters consistently, then practice timing before chasing a build.', sources: [officialTime, reveal],
     sections: [
-      { id: 'controls', title: 'Two control approaches', paragraphs: ['Adaptive omniattack and omniblock simplify directional input. Directional combat rewards deliberate attack and defense timing, including parries and ripostes. These are control choices, not a published ranking of damage output.'] },
+      { id: 'controls', image: articleImages.combat, title: 'Two control approaches', paragraphs: ['Adaptive omniattack and omniblock simplify directional input. Directional combat rewards deliberate attack and defense timing, including parries and ripostes. These are control choices, not a published ranking of damage output.'] },
       { id: 'practice', title: 'Practice one thing at a time', paragraphs: ['in an encounter you can revisit, focus first on recognizing an incoming attack, then on a consistent defensive response, then on a short punish. If you cannot explain why an attempt failed, reduce the number of actions you are trying to learn at once.'] },
       { id: 'forms', title: 'Reassess your tools after a phase change', paragraphs: ['Coen’s daytime and nighttime abilities differ. Review the actions currently available before repeating a tactic that depended on a different form. Do not spend scarce upgrades solely because a generic RPG build calls them mandatory.'] },
-      { id: 'builds', title: 'What this guide does not rank', paragraphs: ['We have no independent damage tests or complete boss matchup database. No weapon, skill or upgrade is presented as a mathematically best build. Use observed difficulty in your own encounters to decide what to investigate next.'] },
+      { id: 'builds', image: articleImages.equipment, title: 'What this guide does not rank', paragraphs: ['We have no independent damage tests or complete boss matchup database. No weapon, skill or upgrade is presented as a mathematically best build. Use observed difficulty in your own encounters to decide what to investigate next.'] },
     ], related: ['/guides/beginner/', '/guides/time-limit/', '/fixes/best-settings/'], keywords: ['blood of dawnwalker combat', 'gameplay', 'build'],
   }),
   article({
@@ -808,7 +811,7 @@ export const articles: Article[] = [
     slug: 'release-date', title: 'Release date, platforms and where to check updates', description: 'The publisher announced Dawnwalker’s launch on September 3, 2026 for PC, PS5 and Xbox Series X|S.', kicker: 'Release reference',
     quickAnswer: 'The publisher’s launch announcement is dated September 3, 2026. The Blood of Dawnwalker is available for PC, PlayStation 5 and Xbox Series X|S.', sources: [launch, steam, hotfix],
     sections: [
-      { id: 'released', title: 'The game is released', paragraphs: ['Rebel Wolves developed the open-world action RPG, with Bandai Namco publishing. This site uses the publisher’s dated launch announcement rather than treating old reveal pages as current availability notices.'] },
+      { id: 'released', image: articleImages.release, title: 'The game is released', paragraphs: ['Rebel Wolves developed the open-world action RPG, with Bandai Namco publishing. This site uses the publisher’s dated launch announcement rather than treating old reveal pages as current availability notices.'] },
       { id: 'dates', title: 'Why a store may show another date', paragraphs: ['Steam displays September 2 while the publisher announcement is dated September 3. We have not verified a universal unlock-time explanation. Check the storefront for your region rather than interpreting those dates as a fresh delay.'] },
       { id: 'patch', title: 'Track your installed version separately', paragraphs: ['An official Hotfix 1.0.2 notice followed on September 4. A release date does not establish which patch your installation has, and a patch announcement does not prove that our guides were retested on it.'] },
       { id: 'check', title: 'A useful setup check', paragraphs: ['confirm the purchased platform, compare PC requirements if relevant, finish the available update and record the version shown by your installation. Consult the original store for current editions, pricing and regional availability.'] },
